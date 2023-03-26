@@ -1,14 +1,8 @@
 mod app;
-#[cfg(feature = "crossterm")]
 mod crossterm;
-#[cfg(feature = "termion")]
-mod termion;
 mod ui;
 
-#[cfg(feature = "crossterm")]
 use crate::crossterm::run;
-#[cfg(feature = "termion")]
-use crate::termion::run;
 use argh::FromArgs;
 use std::{error::Error, time::Duration};
 
@@ -29,3 +23,4 @@ fn main() -> Result<(), Box<dyn Error>> {
     run(tick_rate, cli.enhanced_graphics)?;
     Ok(())
 }
+
